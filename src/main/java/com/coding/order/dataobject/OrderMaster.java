@@ -12,9 +12,14 @@
  ********************************************************************************/
 package com.coding.order.dataobject;
 
+import lombok.Data;
+
+import javax.persistence.Entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Data
+@Entity
 public class OrderMaster {
 
     /** 订单id. */
@@ -26,17 +31,24 @@ public class OrderMaster {
     /** 买家手机号. */
     private String buyerPhone;
 
+    /** 买家地址. */
     private String buyerAddress;
 
+    /** 买家微信Openid. */
     private String buyerOpenid;
 
+    /** 订单金额. */
     private BigDecimal orderAmount;
 
+    /** 订单状态. */
     private Integer orderStatus;
 
+    /** 支付状态. */
     private Integer payStatus;
 
+    /** 创建时间. */
     private Date createTime;
 
+    /** 更新时间. */
     private Date  updateTime;
 }
