@@ -1,30 +1,28 @@
 /*
- * 文件名称：OrderMaster.java
+ * 文件名称：OrderDTO.java
  * 系统名称：[系统名称]
  * 模块名称：[模块名称]
  * 软件版权：Copyright (c) 2011-2018, liming20110711@163.com All Rights Reserved.
  * 功能说明：[请在此处输入功能说明]
  * 开发人员：Rushing0711
- * 创建日期：20180727 08:00
+ * 创建日期：20180731 08:12
  * 修改记录：
  * <Version>        <DateSerial>        <Author>        <Description>
- * 1.0.0            20180727-01         Rushing0711     M201807270800 新建文件
+ * 1.0.0            20180731-01         Rushing0711     M201807310812 新建文件
  ********************************************************************************/
-package com.coding.order.dataobject;
+package com.coding.order.dto;
 
+import com.coding.order.dataobject.OrderDetail;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.util.List;
 
 @Data
-@Entity
-public class OrderMaster {
+public class OrderDTO {
 
     /** 订单id. */
-    @Id private String orderId;
+    private String orderId;
 
     /** 买家名字. */
     private String buyerName;
@@ -47,9 +45,6 @@ public class OrderMaster {
     /** 支付状态. */
     private Integer payStatus;
 
-    /** 创建时间. */
-    private Date createTime;
-
-    /** 更新时间. */
-    private Date updateTime;
+    /** 订单明细列表 */
+    private List<OrderDetail> orderDetailList;
 }

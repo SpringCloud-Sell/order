@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 
 @Component
@@ -20,6 +21,7 @@ public class OrderMasterRepositoryTest extends OrderApplicationTests {
     private static final String OPENID = "110110";
 
     @Test
+    @Transactional
     public void testSave() {
         OrderMaster orderMaster = new OrderMaster();
         orderMaster.setOrderId(KeyUtil.getUniqueKey());
