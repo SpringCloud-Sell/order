@@ -21,7 +21,7 @@ public enum ResultEnum {
     /** 1- 参数不正确. */
     PARAM_ERROR(1, "参数不正确"),
     /** 2 - 购物车不能为空. */
-    CART_EMPTY(2, "购物车不能为空"),
+    CART_EMPTY(2, "购物车为空"),
     ;
 
     private Integer code;

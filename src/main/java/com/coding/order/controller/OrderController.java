@@ -24,6 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,6 +39,7 @@ public class OrderController {
 
     @Autowired private OrderService orderService;
 
+    @PostMapping("/create")
     public ResultVO create(@Valid OrderForm orderForm, BindingResult bindingResult) {
         // 1.参数校验
         if (bindingResult.hasErrors()) {
