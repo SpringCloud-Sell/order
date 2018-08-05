@@ -1,0 +1,25 @@
+server:
+  port: 8756
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: order
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: springboot
+    password: SpringBoot@123
+    url: jdbc:mysql://192.168.8.116/selldb?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  profiles:
+    active: dev
+
+logging:
+  config: classpath:logback-spring-${spring.profiles.active}.xml
