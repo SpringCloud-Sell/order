@@ -10,3 +10,4 @@ spring:
         enabled: true
         service-id: config
       profile: dev
+      label: master
