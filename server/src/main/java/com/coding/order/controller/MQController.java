@@ -28,21 +28,21 @@ public class MQController {
 
     @GetMapping("/send1")
     public void send1() {
-        amqpTemplate.convertAndSend("myQueue1", "now " + new Date());
+        amqpTemplate.convertAndSend("mqQueue1", "now " + new Date());
     }
 
     @GetMapping("/send2")
     public void send2() {
-        amqpTemplate.convertAndSend("myQueue2", "now " + new Date());
+        amqpTemplate.convertAndSend("mqQueue2", "now " + new Date());
     }
 
     @GetMapping("/send3")
     public void send3() {
-        amqpTemplate.convertAndSend("myQueue3", "now " + new Date());
+        amqpTemplate.convertAndSend("mqQueue3", "now " + new Date());
     }
 
     @GetMapping("/sendComputer")
     public void sendComputer() {
-        amqpTemplate.convertAndSend("myOrderExchange", "computer", "now " + new Date());
+        amqpTemplate.convertAndSend("mqOrderExchange", "computer", "now " + new Date());
     }
 }

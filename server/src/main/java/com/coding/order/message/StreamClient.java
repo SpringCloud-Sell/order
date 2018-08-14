@@ -17,15 +17,27 @@ import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.SubscribableChannel;
 
+/**
+ * 这里定义的@Input和@Output都会生成对应名称的Exchanges，并且@Input会生成同名开头的Queue，@Output会生成SpringCloudBus开头的Queue.
+ *
+ * <p>创建时间: <font style="color:#00FFFF">20180814 07:36</font><br>
+ * [请在此输入功能详述]
+ *
+ * @author Rushing0711
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public interface StreamClient {
 
-    String INPUT = "myMessage";
+    String INPUT = "streamInput";
 
-    String INPUT2 = "myMessage2";
+    String OUTPUT = "streamOutput";
 
+    /** 消息生产者. */
     @Input(StreamClient.INPUT)
     SubscribableChannel input();
 
-    @Output(StreamClient.INPUT2)
+    /** 消息消费者. */
+    @Output(StreamClient.OUTPUT)
     MessageChannel output();
 }

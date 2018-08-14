@@ -13,3 +13,7 @@ spring:
         service-id: config
       profile: dev
       label: master
+    stream:
+      bindings:
+        streamInput:
+          group: streamOrder

@@ -34,20 +34,20 @@ import org.springframework.stereotype.Component;
 public class MQReceiver {
 
     /** 第一种：myQueue这个队列必须事先存在. */
-    @RabbitListener(queues = "myQueue1")
+    @RabbitListener(queues = "mqQueue1")
     public void process1(String message) {
         log.info("MQReceiver1: {}", message);
     }
 
     /** 第二种：自动创建队列. */
-    @RabbitListener(queuesToDeclare = @Queue("myQueue2"))
+    @RabbitListener(queuesToDeclare = @Queue("mqQueue2"))
     public void process2(String message) {
         log.info("MQReceiver2: {}", message);
     }
 
     /** 第三种：自动创建队列，Exchanges和Queues绑定. */
     @RabbitListener(
-        bindings = @QueueBinding(value = @Queue("myQueue3"), exchange = @Exchange("myExchange3"))
+        bindings = @QueueBinding(value = @Queue("mqQueue3"), exchange = @Exchange("mqExchange3"))
     )
     public void process3(String message) {
         log.info("MQReceiver3: {}", message);
@@ -56,7 +56,7 @@ public class MQReceiver {
     @RabbitListener(
         bindings =
                 @QueueBinding(
-                    exchange = @Exchange("myOrderExchange"),
+                    exchange = @Exchange("mqOrderExchange"),
                     value = @Queue("computerQueue"),
                     key = "computer"
                 )
@@ -68,7 +68,7 @@ public class MQReceiver {
     @RabbitListener(
         bindings =
                 @QueueBinding(
-                    exchange = @Exchange("myOrderExchange"),
+                    exchange = @Exchange("mqOrderExchange"),
                     value = @Queue("fruitQueue"),
                     key = "fruit"
                 )
