@@ -33,11 +33,11 @@ public interface StreamClient {
 
     String OUTPUT = "streamOutput";
 
-    /** 消息生产者. */
+    /** 消息消费者. */
     @Input(StreamClient.INPUT)
     SubscribableChannel input();
 
-    /** 消息消费者. */
+    /** 消息生产者. */
     @Output(StreamClient.OUTPUT)
     MessageChannel output();
 }

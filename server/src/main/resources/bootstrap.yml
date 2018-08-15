@@ -1,6 +1,8 @@
 # 切换生产环境地址使用
 prod:
   host: 192.168.8.116
+server:
+  port: 8756
 spring:
   application:
     name: order
@@ -13,7 +15,10 @@ spring:
         service-id: config
       profile: dev
       label: master
-    stream:
-      bindings:
-        streamInput:
-          group: streamOrder
+#    stream:
+#      bindings:
+#        streamInput:
+#          destination: streamExchange
+#        streamOutput:
+#          destination: streamExchange
+#          group: streamGroup

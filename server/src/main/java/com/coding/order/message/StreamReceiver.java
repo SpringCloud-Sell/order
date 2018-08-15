@@ -34,16 +34,15 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class StreamReceiver {
 
-    @StreamListener(value = StreamClient.INPUT)
+    @StreamListener(StreamClient.INPUT)
     @SendTo(StreamClient.OUTPUT)
-    public String process1(Object message) {
-        log.info("StreamReceiver1: {}", message);
-        return "received.";
+    public OrderDTO processInput(OrderDTO message) {
+        log.info("StreamInputReceiver: {}", message);
+        return message;
     }
 
-    // 接收orderDTO对象
-    @StreamListener(value = StreamClient.OUTPUT)
-    public void process2(OrderDTO message) {
-        log.info("StreamReceiver2: {}", message);
+    @StreamListener(StreamClient.OUTPUT)
+    public void processOutput(OrderDTO message) {
+        log.info("StreamOutputReceiver: {}", message);
     }
 }
